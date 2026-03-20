@@ -26,12 +26,10 @@ RANDOM_STATE = 1983
 np.random.seed(RANDOM_STATE)
 
 
-print("🚀 开始预处理...")
+print("开始预处理...")
 df_raw = pd.read_excel(RAW_DATA_PATH)
-print(f"✅ 原始数据加载完成，共 {len(df_raw)} 条记录")
 before_dedup = len(df_raw)
 df_raw = df_raw.drop_duplicates()
-print(f"🧹 去重完成：去掉 {before_dedup - len(df_raw)} 条重复记录，剩余 {len(df_raw)} 条")
 df_raw['Seq Length'] = df_raw['Seq Length'].astype(str)
 
 

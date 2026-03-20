@@ -1,3 +1,10 @@
+'''
+@Author: Wang Dong
+@Date: 2025.10.27
+@Description: Data preprocessing and encodeing
+@Negative sampling strategy: motif similarity based
+'''
+
 import torch
 from torch.utils.data import DataLoader, Subset, ConcatDataset
 from sklearn.model_selection import StratifiedKFold
