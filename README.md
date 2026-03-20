@@ -17,6 +17,8 @@ tsRNA–disease associations. The curated dataset is provided in the file
 `tsRNA-disease.xlsx` in this repository.
 
 ## Usage
-- Data preprocessing: generate_dataset.py
-- Train the model: train.py
+1. Data preprocessing  
+   First run `generate_dataset.py` to preprocess the tsRNA–disease association data.
+2. Model training  
+   Then run `train.py` to train the model and output the prediction performance metrics.
 
