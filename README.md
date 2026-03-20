@@ -37,4 +37,4 @@ The following parameters are specified in `train.py`:
 - L2 regularization weight decay: 1×10⁻⁵  
 - Batch size: 32  
 - Training epochs: 200
-- 
+
