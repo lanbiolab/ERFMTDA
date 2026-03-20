@@ -20,3 +20,21 @@ tsRNA–disease associations. The curated dataset is provided as `tsRNA-disease.
 2. Model training  
    Then run `train.py` to train the model and output the prediction performance metrics.
 
+## Parameter Settings
+
+### Dataset preprocessing
+The following parameters are configured in `generate_dataset.py`:
+- Number of principal components in the association matrix：32
+- Top-k parameter used in the negative sampling module：20
+
+### Model training
+The following parameters are specified in `train.py`:
+- Feature embedding dimension: 32  
+- Hidden units in the attention layers: 32  
+- Dropout rate (attention mechanism and amplification network): 0.1  
+- Optimizer: Adam  
+- Learning rate: 1×10⁻³  
+- L2 regularization weight decay: 1×10⁻⁵  
+- Batch size: 32  
+- Training epochs: 200
+- 
