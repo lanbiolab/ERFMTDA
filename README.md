@@ -11,10 +11,8 @@ We propose a new computational model based on rotative factorization machine to 
 - matplotlib 3.9.2
 
 ## Dataset
-The dataset used in this study was manually curated from published literature. 
-We searched the relevant studies and collected experimentally validated 
-tsRNA–disease associations. The curated dataset is provided in the file 
-`tsRNA-disease.xlsx` in this repository.
+The dataset used in this study was manually curated from published literature. We searched the relevant studies and collected experimentally validated 
+tsRNA–disease associations. The curated dataset is provided as `tsRNA-disease.xlsx` and is included in the `ERFMTDA`, `case study`, and `denovo` folders for different experimental settings.
 
 ## Usage
 1. Data preprocessing  
