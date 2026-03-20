@@ -4,11 +4,11 @@ We propose a new computational model based on rotative factorization machine to 
 *ERFMTDA: Predicting tsRNA–disease associations using an enhanced rotative factorization machine*
 
 ## Environment Requirement
-- Python 3.8
-- PyTorch 1.4.0
-- NumPy 1.21.6
-- pandas 1.4.2
-- matplotlib 3.5.2
+- Python 3.12.7
+- PyTorch 2.5.1
+- NumPy 1.26.4
+- pandas 2.2.2
+- matplotlib 3.9.2
 
 ## Dataset
 The dataset used in this study was manually curated from published literature. 
