@@ -1,3 +1,10 @@
+'''
+@Author: Wang Dong
+@Date: 2025.10.27
+@Description: Data preprocessing and encodeing
+@Negative sampling strategy: motif similarity based
+'''
+
 import torch
 import torch.nn as nn
 from torch.nn.init import xavier_normal_
@@ -135,7 +142,7 @@ class RFM(nn.Module):
         for emb in self.embed_layers.values():
             nn.init.xavier_normal_(emb.weight)
 
-        # PCA 特征
+        # PCA features
         self.tsrna_pca_dim = vocab_sizes.get("tsrna_pca_dim", 0)
         self.disease_pca_dim = vocab_sizes.get("disease_pca_dim", 0)
         self.motif_pca_dim = vocab_sizes.get("motif_pca_dim", 0)

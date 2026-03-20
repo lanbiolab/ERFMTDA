@@ -1,3 +1,10 @@
+'''
+@Author: Wang Dong
+@Date: 2025.10.27
+@Description: Data preprocessing and encodeing
+@Negative sampling strategy: motif similarity based
+'''
+
 import pandas as pd
 import numpy as np
 import os
@@ -18,11 +25,13 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 RANDOM_STATE = 1983
 np.random.seed(RANDOM_STATE)
 
+# raw data
 df_raw = pd.read_excel(RAW_DATA_PATH)
 before_dedup = len(df_raw)
 df_raw = df_raw.drop_duplicates()
 df_raw['Seq Length'] = df_raw['Seq Length'].astype(str)
 
+# label encoding
 le_tsRNA_id = LabelEncoder()
 le_tsRNA_type = LabelEncoder()
 le_tsRNA_type_1 = LabelEncoder()
@@ -48,7 +57,7 @@ df_encoded['icd_id'] = le_icd.fit_transform(df_raw['ICD'].astype(str))
 df_encoded['icd_1_id'] = le_icd_1.fit_transform(df_raw['ICD_1'].astype(str))
 df_encoded['icd_2_id'] = le_icd_2.fit_transform(df_raw['ICD_2'].astype(str))
 
-
+# Merge features
 processed_df = df_encoded.copy()
 processed_df['sequence'] = df_raw['tsRNA Sequence'].values
 processed_df['sequence_norm'] = processed_df['sequence'].str.upper().str.replace("T", "U")
@@ -60,11 +69,12 @@ id_cols = [
 ]
 processed_df[id_cols] = processed_df[id_cols].astype(int)
 
-
+# motif statistics
 def extract_motif_binary(sequences, L_range=(12, 14), min_count=3):
     motif_counter = Counter()
     tsrna_motif_list = []
 
+    # Count all motifs and their global occurrences
     for seq in tqdm(sequences, desc="Counting motifs"):
         s = seq.upper().replace("T", "U")
         seen = set()
@@ -74,6 +84,7 @@ def extract_motif_binary(sequences, L_range=(12, 14), min_count=3):
         motif_counter.update(seen)
         tsrna_motif_list.append(seen)
 
+    # Filter out low-frequency motifs and reduce dimensionality (adjustable as needed)
     motif_vocab = [m for m, c in motif_counter.items() if c >= min_count]
 
     motif_index = {m: i for i, m in enumerate(motif_vocab)}
@@ -86,11 +97,14 @@ def extract_motif_binary(sequences, L_range=(12, 14), min_count=3):
 
     return motif_matrix, motif_vocab
 
+# motif feature generation
 motif_matrix, motif_vocab = extract_motif_binary(
     processed_df['sequence_norm'].tolist(),
     L_range=(8, 12),
     min_count=3 
 )
+
+# PCA dimensionality reduction
 pca_dim = 16
 pca = PCA(n_components=pca_dim, random_state=RANDOM_STATE)
 motif_pca_features = pca.fit_transform(motif_matrix)
@@ -100,7 +114,7 @@ motif_pca_df = pd.DataFrame(motif_pca_features, columns=motif_pca_cols)
 
 processed_df = pd.concat([processed_df.reset_index(drop=True), motif_pca_df], axis=1)
 
-
+# Construct tsRNA and disease feature dictionaries
 tsrna_features = {}
 tsrna_cols = ['tsrna_type_id', 'tsrna_type_1_id', 'tsrna_type_2_id', 'Isotype_Anticodon_id', 'Seq_Length_id']
 for _, row in processed_df.iterrows():
@@ -112,6 +126,8 @@ for _, row in processed_df.iterrows():
         "num": row[tsrna_num_cols].values.astype(np.float32),
     }
     '''
+
+# tsRNA -> sequence mapping (for generating negative samples)
 tsrna_seq_map = processed_df.groupby('tsrna_id_id')['sequence_norm'].first().to_dict()
 
 disease_features = {}
@@ -120,6 +136,7 @@ for _, row in processed_df.iterrows():
     did = row['disease_id']
     disease_features[did] = row[disease_cols].values.astype(np.int64)
 
+# Association matrix construction
 num_tsrnas = len(le_tsRNA_id.classes_)  
 num_diseases = len(le_disease.classes_) 
 
@@ -132,6 +149,7 @@ for _, row in processed_df.iterrows():
 
 num_positive = adj_matrix.sum()
 
+# Perform PCA dimensionality reduction on the tsRNA/disease association matrix
 pca_dim = 32 
 
 # tsRNA PCA
@@ -152,6 +170,7 @@ for idx, dis_id in enumerate(range(num_diseases)):
     disease_features[dis_id] = np.concatenate([disease_features[dis_id], disease_pca_features[idx]])
 
 
+# Negative sampling strategy
 def compute_gip_similarity(adj_matrix, gamma=1.0):
     profiles = adj_matrix
     norm_sq = np.sum(profiles**2, axis=1)
@@ -256,7 +275,7 @@ assert len(tsRNA_idx_neg) == num_positive, f"Negative sample count {len(tsRNA_id
 assert len(set(zip(tsRNA_idx_neg, disease_idx_neg))) == num_positive, "Duplicate negative pairs found!"
 print(f"✅ Final unique negative sample count: {len(tsRNA_idx_neg)} (target: {num_positive})")
 
-
+# Negative samples DataFrame
 neg_data = []
 for ts_id, dis_id in zip(tsRNA_idx_neg, disease_idx_neg):
     ts_feat = tsrna_features[ts_id]
@@ -274,6 +293,7 @@ neg_df = pd.DataFrame(neg_data, columns=[
 ] + disease_pca_cols + ['label'])
 
 
+# Combine positive and negative samples
 for idx, col in enumerate(tsrna_pca_cols):
     processed_df[col] = processed_df['tsrna_id_id'].map(lambda x: tsrna_pca_features[x][idx])
 
@@ -285,6 +305,7 @@ pos_df['label'] = 1
 full_df = pd.concat([pos_df, neg_df], ignore_index=True)
 full_df = full_df.sample(frac=1, random_state=RANDOM_STATE).reset_index(drop=True)
 
+# Uniform column order
 feature_cols = [
     'tsrna_id_id', 'tsrna_type_id', 'tsrna_type_1_id', 'tsrna_type_2_id', 'Isotype_Anticodon_id', 'Seq_Length_id',
     'disease_id', 'organ_id', 'icd_id', 'icd_1_id', 'icd_2_id'
@@ -295,10 +316,11 @@ cat_cols = ['tsrna_id_id', 'tsrna_type_id', 'tsrna_type_1_id', 'tsrna_type_2_id'
             'disease_id', 'organ_id', 'icd_id', 'icd_1_id', 'icd_2_id']
 full_df[cat_cols] = full_df[cat_cols].astype(np.int64)
 
+# Save results
 output_path = os.path.join(OUTPUT_DIR, 'full_dataset.csv')
 full_df.to_csv(output_path, index=False)
 
-
+# Save label encoder
 encoders = {
     'tsrna_id': le_tsRNA_id,
     'tsrna_type': le_tsRNA_type,
@@ -314,6 +336,7 @@ encoders = {
 }
 joblib.dump(encoders, os.path.join(OUTPUT_DIR, 'encoders.pkl'))
 
+# Save vocab sizes (for model embedding layer)
 vocab_sizes = {
     'tsrna_id': int(len(le_tsRNA_id.classes_)),
     'tsrna_type': int(len(le_tsRNA_type.classes_)),
@@ -328,13 +351,14 @@ vocab_sizes = {
     'icd_2': int(len(le_icd_2.classes_))
 }
 
-
+# PCA feature dimension adjustment
 vocab_sizes["tsrna_pca_dim"] = len(tsrna_pca_cols)
 vocab_sizes["disease_pca_dim"] = len(disease_pca_cols)
 vocab_sizes["motif_pca_dim"] = 0
 with open(os.path.join(OUTPUT_DIR, 'vocab_sizes.json'), 'w') as f:
     json.dump(vocab_sizes, f, indent=2)
 
+# Save field configuration
 field_config = {
     "fields": [
         {"name": "tsrna_id", "type": "categorical", "col": "tsrna_id_id"},
@@ -359,10 +383,12 @@ field_config = {
 with open(os.path.join(OUTPUT_DIR, 'field_config.json'), 'w') as f:
     json.dump(field_config, f, indent=2)
 
+# Save other auxiliary data
 np.save(os.path.join(OUTPUT_DIR, 'adj_matrix.npy'), adj_matrix)
 np.save(os.path.join(OUTPUT_DIR, 'tsrna_ids.npy'), np.array(le_tsRNA_id.classes_))
 np.save(os.path.join(OUTPUT_DIR, 'disease_ids.npy'), np.array(le_disease.classes_))
 
+# Save the mapping dictionary from tsRNA to sequence
 import pickle
 with open(os.path.join(OUTPUT_DIR, 'tsrna_seq_map.pkl'), 'wb') as f:
     pickle.dump(tsrna_seq_map, f)

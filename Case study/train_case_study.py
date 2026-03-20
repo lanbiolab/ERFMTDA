@@ -1,3 +1,10 @@
+'''
+@Author: Wang Dong
+@Date: 2025.10.27
+@Description: Data preprocessing and encodeing
+@Negative sampling strategy: motif similarity based
+'''
+
 import torch
 from torch.utils.data import DataLoader
 import json, os, random, glob
@@ -26,6 +33,7 @@ def main():
     vocab_path = os.path.join(data_dir, "vocab_sizes.json")
     model_dir = "./saved_model"
 
+    # Loading the tsRNA and disease names
     tsrna_names = np.load(os.path.join(data_dir, "tsrna_ids.npy"), allow_pickle=True)
     disease_names = np.load(os.path.join(data_dir, "disease_ids.npy"), allow_pickle=True)
 
@@ -51,6 +59,7 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    # Initialize the model
     model = RFM(
         vocab_sizes=vocab_sizes,
         embedding_size=embedding_size,
@@ -65,10 +74,12 @@ def main():
 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
 
+    # Check if there is already a model file
     os.makedirs(model_dir, exist_ok=True)
     model_files = glob.glob(os.path.join(model_dir, "RFM_case_full_*.pt"))
 
     if len(model_files) > 0:
+        # Load the latest model
         latest_model = max(model_files, key=os.path.getmtime)
         state_dict = torch.load(latest_model, map_location=device, weights_only=True)
         model.load_state_dict(state_dict)
@@ -98,6 +109,7 @@ def main():
             avg_loss = total_loss / len(train_loader)
             print(f"Epoch {epoch}/{epochs} | Loss: {avg_loss:.4f}")
 
+        # save the model
         model_path = f"{model_dir}/RFM_case_full_{datetime.now().strftime('%Y%m%d-%H%M%S')}.pt"
         torch.save(model.state_dict(), model_path)
 
@@ -125,6 +137,7 @@ def main():
                 disease_id = batch["disease"][i].item()
                 all_pairs.append((tsrna_id, disease_id))
 
+    # Read the tsRNA sequence mapping table
     import pickle
     tsrna_seq_path = os.path.join(data_dir, "tsrna_seq_map.pkl")
     if os.path.exists(tsrna_seq_path):
@@ -135,6 +148,7 @@ def main():
         print("'tsrna_seq_map.pkl' not found, sequence information will not be added.")
         tsrna_seq_map = {}
 
+    # Restore the code to its actual name
     decoded_results = []
     for (tsrna_id, disease_id), score in zip(all_pairs, all_probs):
         tsrna_name = tsrna_names[tsrna_id] if tsrna_id < len(tsrna_names) else f"unknown_{tsrna_id}"
@@ -142,6 +156,7 @@ def main():
         seq = tsrna_seq_map.get(tsrna_id, "N/A")  
         decoded_results.append((tsrna_name, seq, disease_name, score))
 
+    # Output and save the sorting results
     results = pd.DataFrame(decoded_results, columns=["tsRNA_name", "sequence", "disease_name", "score"])
     results = results.sort_values(by="score", ascending=False).reset_index(drop=True)
 
