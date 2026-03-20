@@ -1,0 +1,229 @@
+===== Hyperparameters =====
+seed: 42
+tsrna_pca_dim: 32
+disease_pca_dim: 32
+motif_pca_dim: 0
+train_batch_size: 32
+val_batch_size: 32
+embedding_size: 32
+hidden_units: 32
+att_layers: 2
+head_num: 4
+mlp_list: [64]
+group_hidden_dimension: 8
+drop_rate_att: 0.1
+dp_rate_amp: 0.1
+lr: 0.001
+weight_decay: 1e-05
+epochs: 200
+===========================
+
+Epoch 1 | Loss: 1.2617 | LR: 0.001000
+Epoch 2 | Loss: 0.7108 | LR: 0.001000
+Epoch 3 | Loss: 0.6959 | LR: 0.001000
+Epoch 4 | Loss: 0.6852 | LR: 0.001000
+Epoch 5 | Loss: 0.6942 | LR: 0.001000
+Epoch 6 | Loss: 0.6681 | LR: 0.001000
+Epoch 7 | Loss: 0.6073 | LR: 0.001000
+Epoch 8 | Loss: 0.6145 | LR: 0.001000
+Epoch 9 | Loss: 0.5599 | LR: 0.001000
+Epoch 10 | Loss: 0.5757 | LR: 0.001000
+Epoch 11 | Loss: 0.5299 | LR: 0.001000
+Epoch 12 | Loss: 0.4988 | LR: 0.001000
+Epoch 13 | Loss: 0.5217 | LR: 0.001000
+Epoch 14 | Loss: 0.5101 | LR: 0.001000
+Epoch 15 | Loss: 0.5257 | LR: 0.001000
+Epoch 16 | Loss: 0.5093 | LR: 0.001000
+Epoch 17 | Loss: 0.5197 | LR: 0.001000
+Epoch 18 | Loss: 0.4961 | LR: 0.001000
+Epoch 19 | Loss: 0.4713 | LR: 0.001000
+Epoch 20 | Loss: 0.4717 | LR: 0.001000
+Epoch 21 | Loss: 0.4620 | LR: 0.001000
+Epoch 22 | Loss: 0.4562 | LR: 0.001000
+Epoch 23 | Loss: 0.4668 | LR: 0.001000
+Epoch 24 | Loss: 0.4887 | LR: 0.001000
+Epoch 25 | Loss: 0.4495 | LR: 0.001000
+Epoch 26 | Loss: 0.4427 | LR: 0.001000
+Epoch 27 | Loss: 0.4780 | LR: 0.001000
+Epoch 28 | Loss: 0.4577 | LR: 0.001000
+Epoch 29 | Loss: 0.4480 | LR: 0.001000
+Epoch 30 | Loss: 0.4686 | LR: 0.001000
+Epoch 31 | Loss: 0.4319 | LR: 0.001000
+Epoch 32 | Loss: 0.4473 | LR: 0.001000
+Epoch 33 | Loss: 0.4571 | LR: 0.001000
+Epoch 34 | Loss: 0.4261 | LR: 0.001000
+Epoch 35 | Loss: 0.4389 | LR: 0.001000
+Epoch 36 | Loss: 0.4406 | LR: 0.001000
+Epoch 37 | Loss: 0.4160 | LR: 0.001000
+Epoch 38 | Loss: 0.4130 | LR: 0.001000
+Epoch 39 | Loss: 0.4326 | LR: 0.001000
+Epoch 40 | Loss: 0.4101 | LR: 0.001000
+Epoch 41 | Loss: 0.4231 | LR: 0.001000
+Epoch 42 | Loss: 0.4141 | LR: 0.001000
+Epoch 43 | Loss: 0.4271 | LR: 0.001000
+Epoch 44 | Loss: 0.3905 | LR: 0.001000
+Epoch 45 | Loss: 0.3924 | LR: 0.001000
+Epoch 46 | Loss: 0.3993 | LR: 0.001000
+Epoch 47 | Loss: 0.4105 | LR: 0.001000
+Epoch 48 | Loss: 0.4204 | LR: 0.001000
+Epoch 49 | Loss: 0.4116 | LR: 0.001000
+Epoch 50 | Loss: 0.3766 | LR: 0.001000
+Epoch 51 | Loss: 0.3926 | LR: 0.001000
+Epoch 52 | Loss: 0.3915 | LR: 0.001000
+Epoch 53 | Loss: 0.3658 | LR: 0.001000
+Epoch 54 | Loss: 0.3508 | LR: 0.001000
+Epoch 55 | Loss: 0.3467 | LR: 0.001000
+Epoch 56 | Loss: 0.3752 | LR: 0.001000
+Epoch 57 | Loss: 0.3673 | LR: 0.001000
+Epoch 58 | Loss: 0.3698 | LR: 0.001000
+Epoch 59 | Loss: 0.3451 | LR: 0.001000
+Epoch 60 | Loss: 0.3341 | LR: 0.001000
+Epoch 61 | Loss: 0.3243 | LR: 0.001000
+Epoch 62 | Loss: 0.3157 | LR: 0.001000
+Epoch 63 | Loss: 0.3045 | LR: 0.001000
+Epoch 64 | Loss: 0.2840 | LR: 0.001000
+Epoch 65 | Loss: 0.2850 | LR: 0.001000
+Epoch 66 | Loss: 0.3007 | LR: 0.001000
+Epoch 67 | Loss: 0.2791 | LR: 0.001000
+Epoch 68 | Loss: 0.2925 | LR: 0.001000
+Epoch 69 | Loss: 0.3106 | LR: 0.001000
+Epoch 70 | Loss: 0.2883 | LR: 0.001000
+Epoch 71 | Loss: 0.2838 | LR: 0.001000
+Epoch 72 | Loss: 0.2966 | LR: 0.001000
+Epoch 73 | Loss: 0.2704 | LR: 0.001000
+Epoch 74 | Loss: 0.2471 | LR: 0.001000
+Epoch 75 | Loss: 0.2606 | LR: 0.001000
+Epoch 76 | Loss: 0.2365 | LR: 0.001000
+Epoch 77 | Loss: 0.1833 | LR: 0.001000
+Epoch 78 | Loss: 0.2435 | LR: 0.001000
+Epoch 79 | Loss: 0.1915 | LR: 0.001000
+Epoch 80 | Loss: 0.1859 | LR: 0.001000
+Epoch 81 | Loss: 0.1610 | LR: 0.001000
+Epoch 82 | Loss: 0.1677 | LR: 0.001000
+Epoch 83 | Loss: 0.1470 | LR: 0.001000
+Epoch 84 | Loss: 0.1479 | LR: 0.001000
+Epoch 85 | Loss: 0.1309 | LR: 0.001000
+Epoch 86 | Loss: 0.1226 | LR: 0.001000
+Epoch 87 | Loss: 0.1511 | LR: 0.001000
+Epoch 88 | Loss: 0.1530 | LR: 0.001000
+Epoch 89 | Loss: 0.1075 | LR: 0.001000
+Epoch 90 | Loss: 0.1127 | LR: 0.001000
+Epoch 91 | Loss: 0.1102 | LR: 0.001000
+Epoch 92 | Loss: 0.1560 | LR: 0.001000
+Epoch 93 | Loss: 0.0719 | LR: 0.001000
+Epoch 94 | Loss: 0.0848 | LR: 0.001000
+Epoch 95 | Loss: 0.0694 | LR: 0.001000
+Epoch 96 | Loss: 0.0816 | LR: 0.001000
+Epoch 97 | Loss: 0.0588 | LR: 0.001000
+Epoch 98 | Loss: 0.0621 | LR: 0.001000
+Epoch 99 | Loss: 0.0793 | LR: 0.001000
+Epoch 100 | Loss: 0.0540 | LR: 0.001000
+Epoch 101 | Loss: 0.0542 | LR: 0.001000
+Epoch 102 | Loss: 0.0383 | LR: 0.001000
+Epoch 103 | Loss: 0.0387 | LR: 0.001000
+Epoch 104 | Loss: 0.0313 | LR: 0.001000
+Epoch 105 | Loss: 0.0219 | LR: 0.001000
+Epoch 106 | Loss: 0.0200 | LR: 0.001000
+Epoch 107 | Loss: 0.0321 | LR: 0.001000
+Epoch 108 | Loss: 0.0703 | LR: 0.001000
+Epoch 109 | Loss: 0.1074 | LR: 0.001000
+Epoch 110 | Loss: 0.0841 | LR: 0.001000
+Epoch 111 | Loss: 0.0568 | LR: 0.001000
+Epoch 112 | Loss: 0.0470 | LR: 0.001000
+Epoch 113 | Loss: 0.0331 | LR: 0.001000
+Epoch 114 | Loss: 0.0240 | LR: 0.001000
+Epoch 115 | Loss: 0.0254 | LR: 0.001000
+Epoch 116 | Loss: 0.0260 | LR: 0.001000
+Epoch 117 | Loss: 0.0284 | LR: 0.001000
+Epoch 118 | Loss: 0.0395 | LR: 0.001000
+Epoch 119 | Loss: 0.0405 | LR: 0.001000
+Epoch 120 | Loss: 0.0235 | LR: 0.001000
+Epoch 121 | Loss: 0.0185 | LR: 0.001000
+Epoch 122 | Loss: 0.0189 | LR: 0.001000
+Epoch 123 | Loss: 0.0209 | LR: 0.001000
+Epoch 124 | Loss: 0.0608 | LR: 0.001000
+Epoch 125 | Loss: 0.0598 | LR: 0.001000
+Epoch 126 | Loss: 0.0232 | LR: 0.001000
+Epoch 127 | Loss: 0.0298 | LR: 0.001000
+Epoch 128 | Loss: 0.0351 | LR: 0.001000
+Epoch 129 | Loss: 0.0266 | LR: 0.001000
+Epoch 130 | Loss: 0.0236 | LR: 0.001000
+Epoch 131 | Loss: 0.0316 | LR: 0.001000
+Epoch 132 | Loss: 0.0613 | LR: 0.001000
+Epoch 133 | Loss: 0.0393 | LR: 0.001000
+Epoch 134 | Loss: 0.0345 | LR: 0.001000
+Epoch 135 | Loss: 0.0333 | LR: 0.001000
+Epoch 136 | Loss: 0.0546 | LR: 0.001000
+Epoch 137 | Loss: 0.0270 | LR: 0.001000
+Epoch 138 | Loss: 0.0202 | LR: 0.001000
+Epoch 139 | Loss: 0.0412 | LR: 0.001000
+Epoch 140 | Loss: 0.0352 | LR: 0.001000
+Epoch 141 | Loss: 0.0312 | LR: 0.001000
+Epoch 142 | Loss: 0.0190 | LR: 0.001000
+Epoch 143 | Loss: 0.0108 | LR: 0.001000
+Epoch 144 | Loss: 0.0102 | LR: 0.001000
+Epoch 145 | Loss: 0.0100 | LR: 0.001000
+Epoch 146 | Loss: 0.0117 | LR: 0.001000
+Epoch 147 | Loss: 0.0095 | LR: 0.001000
+Epoch 148 | Loss: 0.0148 | LR: 0.001000
+Epoch 149 | Loss: 0.0180 | LR: 0.001000
+Epoch 150 | Loss: 0.0229 | LR: 0.001000
+Epoch 151 | Loss: 0.0081 | LR: 0.001000
+Epoch 152 | Loss: 0.0091 | LR: 0.001000
+Epoch 153 | Loss: 0.0110 | LR: 0.001000
+Epoch 154 | Loss: 0.0176 | LR: 0.001000
+Epoch 155 | Loss: 0.0089 | LR: 0.001000
+Epoch 156 | Loss: 0.0062 | LR: 0.001000
+Epoch 157 | Loss: 0.0177 | LR: 0.001000
+Epoch 158 | Loss: 0.0051 | LR: 0.001000
+Epoch 159 | Loss: 0.0149 | LR: 0.001000
+Epoch 160 | Loss: 0.0120 | LR: 0.001000
+Epoch 161 | Loss: 0.0241 | LR: 0.001000
+Epoch 162 | Loss: 0.0129 | LR: 0.001000
+Epoch 163 | Loss: 0.0114 | LR: 0.001000
+Epoch 164 | Loss: 0.0086 | LR: 0.001000
+Epoch 165 | Loss: 0.0068 | LR: 0.001000
+Epoch 166 | Loss: 0.0079 | LR: 0.001000
+Epoch 167 | Loss: 0.0181 | LR: 0.001000
+Epoch 168 | Loss: 0.0083 | LR: 0.001000
+Epoch 169 | Loss: 0.0072 | LR: 0.001000
+Epoch 170 | Loss: 0.0101 | LR: 0.001000
+Epoch 171 | Loss: 0.0133 | LR: 0.001000
+Epoch 172 | Loss: 0.0072 | LR: 0.001000
+Epoch 173 | Loss: 0.0060 | LR: 0.001000
+Epoch 174 | Loss: 0.0066 | LR: 0.001000
+Epoch 175 | Loss: 0.0263 | LR: 0.001000
+Epoch 176 | Loss: 0.0195 | LR: 0.001000
+Epoch 177 | Loss: 0.0091 | LR: 0.001000
+Epoch 178 | Loss: 0.0078 | LR: 0.001000
+Epoch 179 | Loss: 0.0092 | LR: 0.001000
+Epoch 180 | Loss: 0.0057 | LR: 0.001000
+Epoch 181 | Loss: 0.0059 | LR: 0.001000
+Epoch 182 | Loss: 0.0082 | LR: 0.001000
+Epoch 183 | Loss: 0.0086 | LR: 0.001000
+Epoch 184 | Loss: 0.0114 | LR: 0.001000
+Epoch 185 | Loss: 0.0246 | LR: 0.001000
+Epoch 186 | Loss: 0.0259 | LR: 0.001000
+Epoch 187 | Loss: 0.0203 | LR: 0.001000
+Epoch 188 | Loss: 0.0729 | LR: 0.001000
+Epoch 189 | Loss: 0.0527 | LR: 0.001000
+Epoch 190 | Loss: 0.0738 | LR: 0.001000
+Epoch 191 | Loss: 0.0533 | LR: 0.001000
+Epoch 192 | Loss: 0.0977 | LR: 0.001000
+Epoch 193 | Loss: 0.0694 | LR: 0.001000
+Epoch 194 | Loss: 0.0208 | LR: 0.001000
+Epoch 195 | Loss: 0.0238 | LR: 0.001000
+Epoch 196 | Loss: 0.0119 | LR: 0.001000
+Epoch 197 | Loss: 0.0253 | LR: 0.001000
+Epoch 198 | Loss: 0.0168 | LR: 0.001000
+Epoch 199 | Loss: 0.0103 | LR: 0.001000
+Epoch 200 | Loss: 0.0156 | AUC: 0.8955, AUPR: 0.9138, Acc: 0.8279, Prec: 0.7941, Rec: 0.8852, F1: 0.8372 | LR: 0.001000
+
+===== Final Epoch Metrics =====
+AUC: 0.8955
+AUPR: 0.9138
+Accuracy: 0.8279
+Precision: 0.7941
+Recall: 0.8852
+F1: 0.8372
+========================

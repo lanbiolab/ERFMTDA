@@ -1,0 +1,459 @@
+{
+  "fields": [
+    {
+      "name": "tsrna_id",
+      "type": "categorical",
+      "col": "tsrna_id_id"
+    },
+    {
+      "name": "tsrna_type",
+      "type": "categorical",
+      "col": "tsrna_type_id"
+    },
+    {
+      "name": "tsrna_type_1",
+      "type": "categorical",
+      "col": "tsrna_type_1_id"
+    },
+    {
+      "name": "tsrna_type_2",
+      "type": "categorical",
+      "col": "tsrna_type_2_id"
+    },
+    {
+      "name": "Isotype_Anticodon",
+      "type": "categorical",
+      "col": "Isotype_Anticodon_id"
+    },
+    {
+      "name": "Seq_Length",
+      "type": "categorical",
+      "col": "Seq_Length_id"
+    },
+    {
+      "name": "disease",
+      "type": "categorical",
+      "col": "disease_id"
+    },
+    {
+      "name": "organ",
+      "type": "categorical",
+      "col": "organ_id"
+    },
+    {
+      "name": "icd",
+      "type": "categorical",
+      "col": "icd_id"
+    },
+    {
+      "name": "icd_1",
+      "type": "categorical",
+      "col": "icd_1_id"
+    },
+    {
+      "name": "icd_2",
+      "type": "categorical",
+      "col": "icd_2_id"
+    },
+    {
+      "name": "tsrna_pca_0",
+      "type": "numerical",
+      "col": "tsrna_pca_0"
+    },
+    {
+      "name": "tsrna_pca_1",
+      "type": "numerical",
+      "col": "tsrna_pca_1"
+    },
+    {
+      "name": "tsrna_pca_2",
+      "type": "numerical",
+      "col": "tsrna_pca_2"
+    },
+    {
+      "name": "tsrna_pca_3",
+      "type": "numerical",
+      "col": "tsrna_pca_3"
+    },
+    {
+      "name": "tsrna_pca_4",
+      "type": "numerical",
+      "col": "tsrna_pca_4"
+    },
+    {
+      "name": "tsrna_pca_5",
+      "type": "numerical",
+      "col": "tsrna_pca_5"
+    },
+    {
+      "name": "tsrna_pca_6",
+      "type": "numerical",
+      "col": "tsrna_pca_6"
+    },
+    {
+      "name": "tsrna_pca_7",
+      "type": "numerical",
+      "col": "tsrna_pca_7"
+    },
+    {
+      "name": "tsrna_pca_8",
+      "type": "numerical",
+      "col": "tsrna_pca_8"
+    },
+    {
+      "name": "tsrna_pca_9",
+      "type": "numerical",
+      "col": "tsrna_pca_9"
+    },
+    {
+      "name": "tsrna_pca_10",
+      "type": "numerical",
+      "col": "tsrna_pca_10"
+    },
+    {
+      "name": "tsrna_pca_11",
+      "type": "numerical",
+      "col": "tsrna_pca_11"
+    },
+    {
+      "name": "tsrna_pca_12",
+      "type": "numerical",
+      "col": "tsrna_pca_12"
+    },
+    {
+      "name": "tsrna_pca_13",
+      "type": "numerical",
+      "col": "tsrna_pca_13"
+    },
+    {
+      "name": "tsrna_pca_14",
+      "type": "numerical",
+      "col": "tsrna_pca_14"
+    },
+    {
+      "name": "tsrna_pca_15",
+      "type": "numerical",
+      "col": "tsrna_pca_15"
+    },
+    {
+      "name": "tsrna_pca_16",
+      "type": "numerical",
+      "col": "tsrna_pca_16"
+    },
+    {
+      "name": "tsrna_pca_17",
+      "type": "numerical",
+      "col": "tsrna_pca_17"
+    },
+    {
+      "name": "tsrna_pca_18",
+      "type": "numerical",
+      "col": "tsrna_pca_18"
+    },
+    {
+      "name": "tsrna_pca_19",
+      "type": "numerical",
+      "col": "tsrna_pca_19"
+    },
+    {
+      "name": "tsrna_pca_20",
+      "type": "numerical",
+      "col": "tsrna_pca_20"
+    },
+    {
+      "name": "tsrna_pca_21",
+      "type": "numerical",
+      "col": "tsrna_pca_21"
+    },
+    {
+      "name": "tsrna_pca_22",
+      "type": "numerical",
+      "col": "tsrna_pca_22"
+    },
+    {
+      "name": "tsrna_pca_23",
+      "type": "numerical",
+      "col": "tsrna_pca_23"
+    },
+    {
+      "name": "tsrna_pca_24",
+      "type": "numerical",
+      "col": "tsrna_pca_24"
+    },
+    {
+      "name": "tsrna_pca_25",
+      "type": "numerical",
+      "col": "tsrna_pca_25"
+    },
+    {
+      "name": "tsrna_pca_26",
+      "type": "numerical",
+      "col": "tsrna_pca_26"
+    },
+    {
+      "name": "tsrna_pca_27",
+      "type": "numerical",
+      "col": "tsrna_pca_27"
+    },
+    {
+      "name": "tsrna_pca_28",
+      "type": "numerical",
+      "col": "tsrna_pca_28"
+    },
+    {
+      "name": "tsrna_pca_29",
+      "type": "numerical",
+      "col": "tsrna_pca_29"
+    },
+    {
+      "name": "tsrna_pca_30",
+      "type": "numerical",
+      "col": "tsrna_pca_30"
+    },
+    {
+      "name": "tsrna_pca_31",
+      "type": "numerical",
+      "col": "tsrna_pca_31"
+    },
+    {
+      "name": "disease_pca_0",
+      "type": "numerical",
+      "col": "disease_pca_0"
+    },
+    {
+      "name": "disease_pca_1",
+      "type": "numerical",
+      "col": "disease_pca_1"
+    },
+    {
+      "name": "disease_pca_2",
+      "type": "numerical",
+      "col": "disease_pca_2"
+    },
+    {
+      "name": "disease_pca_3",
+      "type": "numerical",
+      "col": "disease_pca_3"
+    },
+    {
+      "name": "disease_pca_4",
+      "type": "numerical",
+      "col": "disease_pca_4"
+    },
+    {
+      "name": "disease_pca_5",
+      "type": "numerical",
+      "col": "disease_pca_5"
+    },
+    {
+      "name": "disease_pca_6",
+      "type": "numerical",
+      "col": "disease_pca_6"
+    },
+    {
+      "name": "disease_pca_7",
+      "type": "numerical",
+      "col": "disease_pca_7"
+    },
+    {
+      "name": "disease_pca_8",
+      "type": "numerical",
+      "col": "disease_pca_8"
+    },
+    {
+      "name": "disease_pca_9",
+      "type": "numerical",
+      "col": "disease_pca_9"
+    },
+    {
+      "name": "disease_pca_10",
+      "type": "numerical",
+      "col": "disease_pca_10"
+    },
+    {
+      "name": "disease_pca_11",
+      "type": "numerical",
+      "col": "disease_pca_11"
+    },
+    {
+      "name": "disease_pca_12",
+      "type": "numerical",
+      "col": "disease_pca_12"
+    },
+    {
+      "name": "disease_pca_13",
+      "type": "numerical",
+      "col": "disease_pca_13"
+    },
+    {
+      "name": "disease_pca_14",
+      "type": "numerical",
+      "col": "disease_pca_14"
+    },
+    {
+      "name": "disease_pca_15",
+      "type": "numerical",
+      "col": "disease_pca_15"
+    },
+    {
+      "name": "disease_pca_16",
+      "type": "numerical",
+      "col": "disease_pca_16"
+    },
+    {
+      "name": "disease_pca_17",
+      "type": "numerical",
+      "col": "disease_pca_17"
+    },
+    {
+      "name": "disease_pca_18",
+      "type": "numerical",
+      "col": "disease_pca_18"
+    },
+    {
+      "name": "disease_pca_19",
+      "type": "numerical",
+      "col": "disease_pca_19"
+    },
+    {
+      "name": "disease_pca_20",
+      "type": "numerical",
+      "col": "disease_pca_20"
+    },
+    {
+      "name": "disease_pca_21",
+      "type": "numerical",
+      "col": "disease_pca_21"
+    },
+    {
+      "name": "disease_pca_22",
+      "type": "numerical",
+      "col": "disease_pca_22"
+    },
+    {
+      "name": "disease_pca_23",
+      "type": "numerical",
+      "col": "disease_pca_23"
+    },
+    {
+      "name": "disease_pca_24",
+      "type": "numerical",
+      "col": "disease_pca_24"
+    },
+    {
+      "name": "disease_pca_25",
+      "type": "numerical",
+      "col": "disease_pca_25"
+    },
+    {
+      "name": "disease_pca_26",
+      "type": "numerical",
+      "col": "disease_pca_26"
+    },
+    {
+      "name": "disease_pca_27",
+      "type": "numerical",
+      "col": "disease_pca_27"
+    },
+    {
+      "name": "disease_pca_28",
+      "type": "numerical",
+      "col": "disease_pca_28"
+    },
+    {
+      "name": "disease_pca_29",
+      "type": "numerical",
+      "col": "disease_pca_29"
+    },
+    {
+      "name": "disease_pca_30",
+      "type": "numerical",
+      "col": "disease_pca_30"
+    },
+    {
+      "name": "disease_pca_31",
+      "type": "numerical",
+      "col": "disease_pca_31"
+    },
+    {
+      "name": "motif_pca_0",
+      "type": "numerical",
+      "col": "motif_pca_0"
+    },
+    {
+      "name": "motif_pca_1",
+      "type": "numerical",
+      "col": "motif_pca_1"
+    },
+    {
+      "name": "motif_pca_2",
+      "type": "numerical",
+      "col": "motif_pca_2"
+    },
+    {
+      "name": "motif_pca_3",
+      "type": "numerical",
+      "col": "motif_pca_3"
+    },
+    {
+      "name": "motif_pca_4",
+      "type": "numerical",
+      "col": "motif_pca_4"
+    },
+    {
+      "name": "motif_pca_5",
+      "type": "numerical",
+      "col": "motif_pca_5"
+    },
+    {
+      "name": "motif_pca_6",
+      "type": "numerical",
+      "col": "motif_pca_6"
+    },
+    {
+      "name": "motif_pca_7",
+      "type": "numerical",
+      "col": "motif_pca_7"
+    },
+    {
+      "name": "motif_pca_8",
+      "type": "numerical",
+      "col": "motif_pca_8"
+    },
+    {
+      "name": "motif_pca_9",
+      "type": "numerical",
+      "col": "motif_pca_9"
+    },
+    {
+      "name": "motif_pca_10",
+      "type": "numerical",
+      "col": "motif_pca_10"
+    },
+    {
+      "name": "motif_pca_11",
+      "type": "numerical",
+      "col": "motif_pca_11"
+    },
+    {
+      "name": "motif_pca_12",
+      "type": "numerical",
+      "col": "motif_pca_12"
+    },
+    {
+      "name": "motif_pca_13",
+      "type": "numerical",
+      "col": "motif_pca_13"
+    },
+    {
+      "name": "motif_pca_14",
+      "type": "numerical",
+      "col": "motif_pca_14"
+    },
+    {
+      "name": "motif_pca_15",
+      "type": "numerical",
+      "col": "motif_pca_15"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tsrna_id": 260,
+  "tsrna_type": 7,
+  "tsrna_type_1": 2,
+  "tsrna_type_2": 27,
+  "Isotype_Anticodon": 44,
+  "Seq_Length": 28,
+  "disease": 57,
+  "organ": 32,
+  "icd": 7,
+  "icd_1": 11,
+  "icd_2": 41,
+  "tsrna_pca_dim": 32,
+  "disease_pca_dim": 32,
+  "motif_pca_dim": 0
+}
