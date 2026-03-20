@@ -1,3 +1,10 @@
+'''
+@Author: Wang Dong
+@Date: 2025.10.27
+@Description: Data preprocessing and encodeing
+@Negative sampling strategy: motif similarity based
+'''
+
 import torch
 from torch.utils.data import DataLoader, Subset
 from sklearn.model_selection import StratifiedKFold
@@ -30,6 +37,7 @@ def get_logger(log_dir="./logs"):
     return log
 
 def average_curves(fold_metrics):
+    '''Calculate the average of interpolated ROC and PR curves'''
     mean_fpr = np.linspace(0, 1, 100)
     mean_recall = np.linspace(0, 1, 100)
 
@@ -155,6 +163,7 @@ def main(use_scheduler=False):
 
     all_results = []
 
+    # Traverse the cold start dataset for each disease
     disease_dirs = sorted(
         [d for d in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, d))]
     )
@@ -179,6 +188,7 @@ def main(use_scheduler=False):
         train_loader = DataLoader(train_dataset, batch_size=train_batch_size, shuffle=True, collate_fn=collate_fn)
         test_loader = DataLoader(test_dataset, batch_size=val_batch_size, shuffle=False, collate_fn=collate_fn)
 
+        # Initialize the model
         model = RFM(
             vocab_sizes=vocab_sizes,
             embedding_size=embedding_size,
@@ -203,7 +213,8 @@ def main(use_scheduler=False):
             )
         else:
             scheduler = None
-            
+
+        # hyperparameter dictionary    
         hparams = dict(
             seed=seed,
             tsrna_pca_dim=tsrna_pca_dim,
@@ -240,7 +251,7 @@ def main(use_scheduler=False):
 
         all_results.append(metrics)
 
-    
+    # Summary results
     print("\n===== Cold-Disease Average Results =====")
     summary_path = os.path.join(log_dir, "summary.log")
     with open(summary_path, "w") as summary_file:
